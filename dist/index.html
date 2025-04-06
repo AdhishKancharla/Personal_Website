@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Adhish Kancharla">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Personal Website</title>
+  <link rel="stylesheet" href="/_astro/index.d2345e8b.css" />
+<link rel="stylesheet" href="/_astro/index.b18fd279.css" /><script type="module" src="/_astro/hoisted.335826d9.js"></script></head>
+  <body>
+    <header class="header astro-3EF6KSR2">
+  <div class="container astro-3EF6KSR2">
+    <nav class="astro-3EF6KSR2">
+      <div class="logo astro-3EF6KSR2">
+        <a href="/" class="astro-3EF6KSR2">Adhish</a>
+      </div>
+      <ul class="menu astro-3EF6KSR2">
+        <li class="astro-3EF6KSR2">
+            <a href="/" class="active astro-3EF6KSR2">
+              Home
+            </a>
+          </li><li class="astro-3EF6KSR2">
+            <a href="/projects" class=" astro-3EF6KSR2">
+              Projects
+            </a>
+          </li><li class="astro-3EF6KSR2">
+            <a href="/personal" class=" astro-3EF6KSR2">
+              Personal
+            </a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- This spacer ensures content doesn't get hidden behind the fixed header -->
+<div class="header-spacer astro-3EF6KSR2"></div>
+    <main>
+      
+  <div class="hero-section astro-J7PV25F6">
+    <h1 class="fade-in astro-J7PV25F6">Hello, I'm Adhish</h1>
+    
+    <div class="typing-container astro-XC4B5A4T">
+  <span class="static-text astro-XC4B5A4T">I am</span>
+  <span class="typing-text astro-XC4B5A4T"></span>
+</div>
+
+
+
+<script>(function(){const words = ["a Computer Scientist","a YouTuber","a Squash Player","an Algorithmic Trader"];
+const speed = 100;
+const delay = 2000;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const typingText = document.querySelector('.typing-text');
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function type() {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+      
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, delay);
+        return;
+      }
+      
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+        return;
+      }
+      
+      setTimeout(type, isDeleting ? speed / 2 : speed);
+    }
+    
+    if (typingText) {
+      setTimeout(type, 1000);
+    }
+  });
+})();</script>
+    
+    <p class="slide-in-left astro-J7PV25F6">
+      Based at Magdalen College, University of Oxford
+    </p>
+    <div class="cta-buttons astro-J7PV25F6">
+      <a href="/projects" class="slide-in-bottom staggered-item astro-J7PV25F6">My Projects</a>
+      <a href="/personal" class="slide-in-bottom staggered-item astro-J7PV25F6">About Me</a>
+    </div>
+  </div>
+
+  
+
+    </main>
+    <footer class="astro-SZ7XMLTE">
+  <div class="container astro-SZ7XMLTE">
+    <div class="footer-content astro-SZ7XMLTE">
+      <div class="footer-section astro-SZ7XMLTE">
+        <p class="astro-SZ7XMLTE">CS&commat;Magdalen</p>
+      </div>
+      
+      <div class="footer-section astro-SZ7XMLTE">
+        <h3 class="astro-SZ7XMLTE">Connect</h3>
+        <div class="social-links astro-SZ7XMLTE">
+          <a href="https://www.youtube.com/@adhishkancharla" target="_blank" aria-label="YouTube" class="astro-SZ7XMLTE">
+            <i class="fab fa-youtube astro-SZ7XMLTE"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/adhish-kancharla-7214b8213/" target="_blank" aria-label="LinkedIn" class="astro-SZ7XMLTE">
+            <i class="fab fa-linkedin astro-SZ7XMLTE"></i>
+          </a>
+          <a href="https://github.com/AdhishKancharla/" target="_blank" aria-label="GitHub" class="astro-SZ7XMLTE">
+            <i class="fab fa-github astro-SZ7XMLTE"></i>
+          </a>
+          <a href="https://www.instagram.com/adhishk07/" target="_blank" aria-label="Instagram" class="astro-SZ7XMLTE">
+            <i class="fab fa-instagram astro-SZ7XMLTE"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+  </body>
+</html>

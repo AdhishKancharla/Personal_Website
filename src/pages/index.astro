@@ -1,0 +1,56 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import TypingEffect from '../components/TypingEffect.astro';
+---
+
+<MainLayout>
+  <div class = "hero-section">
+    <h1 class = "fade-in">Hello, I'm Adhish</h1>
+    
+    <TypingEffect words={["a Computer Scientist", "a YouTuber", "a Squash Player", "an Algorithmic Trader"]} />
+    
+    <p class = "slide-in-left">
+      Based at Magdalen College, University of Oxford
+    </p>
+    <div class = "cta-buttons">
+      <a href = "/projects" class = "slide-in-bottom staggered-item">My Projects</a>
+      <a href = "/personal" class = "slide-in-bottom staggered-item">About Me</a>
+    </div>
+  </div>
+
+  <style>
+    .hero-section {
+      text-align: center;
+      padding: 5rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .cta-buttons {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .cta-buttons a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background-color: #333;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    
+    .cta-buttons a:hover {
+      transform: translateY(-3px);
+      background-color: #555;
+    }
+  </style>
+</MainLayout>

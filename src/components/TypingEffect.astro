@@ -1,0 +1,81 @@
+---
+const { words, speed = 100, delay = 2000 } = Astro.props;
+---
+
+<div class="typing-container">
+  <span class="static-text">I am</span>
+  <span class="typing-text"></span>
+</div>
+
+<style>
+  .typing-container {
+    display: flex;
+    font-size: 1.5rem;
+    line-height: 40px;
+    margin: 1rem 0 2rem;
+    justify-content: center;
+    white-space: nowrap; /* Ensure text does not wrap */
+  }
+  
+  .static-text {
+    margin-right: 0.5rem; /* Add some margin to the right of "I am" */
+  }
+  
+  .typing-text {
+    position: relative;
+    color: #4a89dc;
+    font-weight: bold;
+  }
+  
+  .typing-text::after {
+    content: "|";
+    position: absolute;
+    right: -8px;
+    animation: blink 0.7s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<script define:vars={{ words, speed, delay }}>
+  document.addEventListener('DOMContentLoaded', () => {
+    const typingText = document.querySelector('.typing-text');
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function type() {
+      const currentWord = words[wordIndex];
+      
+      if (isDeleting) {
+        typingText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+      
+      if (!isDeleting && charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, delay);
+        return;
+      }
+      
+      if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+        return;
+      }
+      
+      setTimeout(type, isDeleting ? speed / 2 : speed);
+    }
+    
+    if (typingText) {
+      setTimeout(type, 1000);
+    }
+  });
+</script>

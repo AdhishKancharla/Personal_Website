@@ -1,0 +1,99 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class = "container">
+    <div class = "footer-content">
+      <div class = "footer-section">
+        <p>CS&commat;Magdalen</p>
+      </div>
+      
+      <div class = "footer-section">
+        <h3>Connect</h3>
+        <div class = "social-links">
+          <a href = "https://www.youtube.com/@adhishkancharla" target = "_blank" aria-label = "YouTube">
+            <i class = "fab fa-youtube"></i>
+          </a>
+          <a href = "https://www.linkedin.com/in/adhish-kancharla-7214b8213/" target = "_blank" aria-label = "LinkedIn">
+            <i class = "fab fa-linkedin"></i>
+          </a>
+          <a href = "https://github.com/AdhishKancharla/" target = "_blank" aria-label = "GitHub">
+            <i class = "fab fa-github"></i>
+          </a>
+          <a href = "https://www.instagram.com/adhishk07/" target = "_blank" aria-label = "Instagram">
+            <i class = "fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: 3rem;
+    background-color: #121212; /* Explicitly set the footer background color */
+    padding: 2rem 0 1rem 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    margin: 1rem;
+    min-width: 200px;
+    color: white;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .social-links a {
+    color: #ffffff; /* Bright white for visibility */
+    font-size: 1.8rem; /* Slightly larger for better visibility */
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for better contrast */
+  }
+  
+  .social-links a:hover {
+    color: #4a89dc; /* Blue on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Lighter background on hover */
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid #555;
+  }
+  
+  .copyright-text {
+    color: #e0e0e0; /* Light gray, highly visible on dark background */
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<!-- Font Awesome for icons -->
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

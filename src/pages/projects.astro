@@ -1,0 +1,306 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+// Current date for footer
+const currentDate = new Date("2025-04-06").toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<MainLayout>
+  <div class = "projects-container">
+    <header class = "projects-header">
+      <h1 class = "black-header">My Projects</h1>
+      <div class = "header-underline"></div>
+      <div class = "social-links">
+        <a href = "https://youtube.com/@adhishkancharla" target = "_blank">YouTube</a>
+        <a href = "https://www.linkedin.com/in/adhish-kancharla-7214b8213/" target = "_blank">LinkedIn</a>
+        <a href = "https://github.com/AdhishKancharla/" target = "_blank">GitHub</a>
+      </div>
+    </header>
+    
+    <section class = "featured-project animate-on-scroll fade-up">
+      <div class = "featured-project-card">
+        <div class = "featured-content">
+          <h3>Trading Platform</h3>
+          <p class = "project-description">
+            I am currently working on an options trading platform which enables users to send orders 
+            to multiple accounts across multiple brokers at the same time. 
+            Over the summer, I plan on adding live quantitative signals to the website including machine learning based signals.
+            Currently the website supports order placement and modification on the Kotak and Upstox brokers.
+          </p>
+          <div class = "project-details">
+            <div class = "technologies">
+              <span class = "tech-tag">Python</span>
+              <span class = "tech-tag">React</span>
+              <span class = "tech-tag">Flask</span>
+            </div>
+            <div class = "project-links">
+              <a href = "https://github.com/AdhishKancharla/Trading_Platform" class = "project-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class = "other-projects">
+      <div class = "projects-grid">
+        <div class = "project-card animate-on-scroll fade-left" style = "transition-delay: 0.1s;">
+          <h3>Cambridge Center for International Research</h3>
+          <p>
+            Spent 4 months researching the applications of mathematical optimization unders Professor Benoit Legat.
+            Wrote a paper on the K-center problem, an NP-hard problem in combinatorial optimization.
+            Discussed its applications including finding charging points for electric cars.
+          </p>
+          <div class = "technologies">
+            <span class = "tech-tag">Mixed Integer Linear Programming (MILP)</span>
+            <span class = "tech-tag">Julia</span>
+          </div>
+          <div class = "project-links">
+            <a href = "/src/K_Center.pdf" class = "project-link">Paper</a>
+          </div>
+        </div>
+        
+        <div class="project-card animate-on-scroll fade-right" style="transition-delay: 0.3s;">
+          <h3>Tester, Video Editorialist</h3>
+          <p>
+            During high school, I made over 300 paid video editorials for Codechef on their YouTube channel.
+            At the same time, I also tested over 20 contests for Codeforces which had close to 10,000 participants each.
+            Codeforces and Codechef are the largest competitive programming platforms in the world.
+          </p>
+          <div class = "technologies">
+            <span class = "tech-tag">Python</span>
+            <span class = "tech-tag">C++</span>
+            <span class = "tech-tag">Video Editing</span>
+          </div>
+          <div class = "project-links">
+            <a href = "https://codeforces.com/" class = "project-link">Codeforces</a>
+            <a href = "https://www.codechef.com/" class = "project-link">Codechef</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer class = "projects-footer">
+      <p>Last updated: {currentDate}</p>
+    </footer>
+  </div>
+  
+  <style>
+    .black-header {
+      color: #000;
+    }
+    
+    .projects-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .projects-header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
+      z-index: 10;
+      background-color: #f4f4f4; /* Match the background color of the page */
+    }
+    
+    .projects-header h1 {
+      margin-top: 0;
+      font-size: 2.5rem;
+    }
+    
+    .header-underline {
+      height: 3px;
+      width: 80px;
+      background: linear-gradient(to right, #4a89dc, #3498db);
+      margin: 1rem auto 1.5rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-links a {
+      padding: 0.5rem 1rem;
+      background-color: #333;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: #555;
+      transform: translateY(-3px);
+    }
+    
+    /* Featured Project Styles */
+    .featured-project {
+      margin-bottom: 4rem;
+    }
+    
+    .featured-project h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: #333;
+      position: relative;
+    }
+    
+    .featured-project-card {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .featured-content {
+      flex: 1;
+      min-width: 300px;
+      padding: 2rem;
+    }
+    
+    .featured-image {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background-color: #f7f7f7;
+    }
+    
+    .image-placeholder {
+      width: 100%;
+      height: 250px;
+      background-color: #e9ecef;
+      border: 2px dashed #ced4da;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+      font-style: italic;
+    }
+    
+    .project-description {
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+    
+    .other-projects {
+      margin-bottom: 3rem;
+    }
+    
+    .other-projects h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+      color: #333;
+    }
+    
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    
+    .project-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.5rem;
+      background-color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+    
+    .technologies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    
+    .tech-tag {
+      background-color: #e9ecef;
+      color: #495057;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .project-links {
+      margin-top: 1rem;
+    }
+    
+    .project-link {
+      display: inline-block;
+      margin-right: 1rem;
+      color: #4a89dc;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+    
+    .projects-footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #dee2e6;
+      color: #e0e0e0;
+      font-size: 0.9rem;
+    }
+    
+    /* Animation styles */
+    .animate-on-scroll {
+      will-change: opacity, transform;
+    }
+    
+    @media (max-width: 768px) {
+      .featured-project-card {
+        flex-direction: column;
+      }
+      
+      .featured-image {
+        order: -1;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add animation for section scrolling that won't affect layout
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add visible class but ensure it doesn't cause layout shifts
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        // Set initial styles that won't affect layout
+        el.style.opacity = 0;
+        el.style.transform = el.classList.contains('fade-right') ? 'translateX(20px)' : 
+                              el.classList.contains('fade-left') ? 'translateX(-20px)' : 
+                              'translateY(20px)';
+        el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        observer.observe(el);
+      });
+    });
+  </script>
+</MainLayout>

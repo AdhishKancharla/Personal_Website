@@ -1,0 +1,310 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+// Get current date for the footer
+const currentDate = new Date("2025-04-06").toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<MainLayout>
+  <div class = "personal-container">
+    <header class = "personal-header">
+      <h1 class = "black-header">About Me</h1>
+      <div class = "header-underline"></div>
+      <p class = "subtitle">Sports, Content Creation, Music</p>
+    </header>
+    
+    <!-- Profile Section -->
+    <section class = "profile-section">
+      <div class = "profile-content">
+        <div class = "profile-text animate-on-scroll fade-right">
+          <h2>Hello there!</h2>
+          <p>I'm passionate about sports, content creation and music.</p>
+          <p>This page gives you a glimpse into who I am beyond my professional life.</p>
+        </div>
+        <div class = "profile-image-container animate-on-scroll fade-left">
+          <div class = "profile-image-wrapper">
+            <img src = "/src/me.jpg" alt = "DMC Delorean from Back to the Future" class = "profile-image" />
+            <div class="image-caption">The DMC Delorean from Back to the Future</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class = "interests-section animate-on-scroll">
+      <h2>My Interests</h2>
+      
+      <div class = "tabs">
+        <button class = "tab-button active" data-tab = "squash">Squash</button>
+        <button class = "tab-button" data-tab = "youtube">YouTube</button>
+        <button class = "tab-button" data-tab = "music">Music</button>
+      </div>
+
+      <div class = "tab-content" id = "squash-content" style = "display: block;">
+        <h3>Squash</h3>
+        <p>I enjoy playing squash in my free time. It's a great way to stay active and clear my mind.</p>
+        <div class = "content-block">
+          <ul>
+            <li>Started playing Squash in 2016</li>
+            <li>Represented India at the 2018 Asian Juniors and the 2023 British Juniors</li>
+            <li>Part of the 2025 Oxford Blues Squash team that won the 100th anniversary against Cambridge</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class = "tab-content" id = "youtube-content" style = "display: none;">
+        <h3>YouTube Content Creator</h3>
+        <p>I create educational content related to algorithmic programming in C++.</p>
+        <div class = "content-block">
+          <ul>
+            <li>My channel has more than 5000 subscribers across 150 videos</li>
+            <li>During 2021 to 2024, I posted video solutions to problems from online programming competitions</li>
+            <li>The most popular playlists were on Dynamic Programming and Graph Theory</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class = "tab-content" id = "music-content" style = "display: none;">
+        <h3>Music</h3>
+        <p>I spend most of my free time listening to music.
+          My favorite genres are pop and rock.
+          I also have an on and off relationship with learning to playing the guitar.
+        </p>
+        <div class = "content-block">
+          <ul>
+            <li>I started to learn the guitar during 8th grade but stopped during the lock-down</li>
+            <li>The summer after high school ended I picked up the classical guitar to learn a bit of finger-style</li>
+            <li>Now I just enjoy listening to rock and pop: my favorite rock band is AC/DC and my favorite pop singer is Tove Lo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <footer class = "personal-footer animate-on-scroll fade-up">
+      <p>Last updated: {currentDate}</p>
+      <p>Feel free to reach out to connect on any of my socials below!</p>
+    </footer>
+  </div>
+  
+  <style>
+    .black-header {
+      color: #000;
+    }
+    
+    .personal-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    .personal-header {
+      position: relative;
+      text-align: center;
+      margin-bottom: 3rem;
+      padding-top: 2rem;
+      z-index: 10;
+      background-color: #f4f4f4;
+    }
+    
+    .personal-header h1 {
+      margin-top: 0;
+      font-size: 2.5rem;
+    }
+    
+    .header-underline {
+      height: 3px;
+      width: 80px;
+      background: linear-gradient(to right, #4a89dc, #3498db);
+      margin: 1rem auto 2rem;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    
+    .profile-section {
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .profile-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .profile-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .profile-image-container {
+      flex: 1;
+      min-width: 300px;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .profile-image-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .profile-image {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #ced4da;
+    }
+    
+    .image-caption {
+      font-style: italic;
+      color: #6c757d;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 0.9rem;
+    }
+    
+    .interests-section {
+      margin-bottom: 3rem;
+    }
+    
+    .tabs {
+      display: flex;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #dee2e6;
+    }
+    
+    .tab-button {
+      background: none;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      color: #495057;
+      position: relative;
+    }
+    
+    .tab-button:hover {
+      color: #1a73e8;
+    }
+    
+    .tab-button.active {
+      color: #1a73e8;
+    }
+    
+    .tab-button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #1a73e8;
+    }
+    
+    .tab-content {
+      display: none;
+      padding: 1rem 0;
+    }
+    
+    .content-block {
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #f8f9fa;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+    }
+    
+    .content-block ul {
+      padding-left: 1.5rem;
+      margin: 0.5rem 0;
+    }
+    
+    .content-block li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .personal-footer {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #dee2e6;
+      color: #e0e0e0;
+      font-size: 0.9rem;
+    }
+    
+    /* Ensure animations don't affect layout positioning */
+    .animate-on-scroll {
+      will-change: opacity, transform;
+    }
+    
+    @media (max-width: 768px) {
+      .profile-content {
+        flex-direction: column-reverse;
+      }
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get all tab elements
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      // Add click event to each tab button
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          
+          // Hide all tab contents
+          tabContents.forEach(content => {
+            content.style.display = 'none';
+          });
+          
+          // Show the selected tab content
+          const tabId = button.getAttribute('data-tab');
+          document.getElementById(`${tabId}-content`).style.display = 'block';
+        });
+      });
+      
+      // Add animation for section scrolling that won't affect layout
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Add visible class but ensure it doesn't cause layout shifts
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        // Set initial styles that won't affect layout
+        if (!el.classList.contains('personal-header')) {
+          el.style.opacity = 0;
+          el.style.transform = el.classList.contains('fade-right') ? 'translateX(-20px)' : 
+                               el.classList.contains('fade-left') ? 'translateX(20px)' : 
+                               'translateY(20px)';
+          el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+          observer.observe(el);
+        }
+      });
+    });
+  </script>
+</MainLayout>
