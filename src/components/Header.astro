@@ -8,16 +8,22 @@ const menuItems = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class = "header">
-  <div class = "container">
+<header class="header">
+  <div class="container">
     <nav>
-      <div class = "logo">
-        <a href = "/">Adhish</a>
+      <div class="logo">
+        <a href="/">Adhish</a>
       </div>
-      <ul class = "menu">
+      
+      <!-- Mobile menu toggle button -->
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span class="hamburger-icon"></span>
+      </button>
+      
+      <ul class="menu">
         {menuItems.map(item => (
           <li>
-            <a href = {item.path} class = {currentPath === item.path ? 'active' : ''}>
+            <a href={item.path} class={currentPath === item.path ? 'active' : ''}>
               {item.title}
             </a>
           </li>
@@ -28,27 +34,28 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <!-- This spacer ensures content doesn't get hidden behind the fixed header -->
-<div class = "header-spacer"></div>
+<div class="header-spacer"></div>
 
 <style>
+  /* Base header styles */
   .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(25, 25, 30, 0.9); /* Start with dark background */
+    background-color: rgba(25, 25, 30, 0.9);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
   }
   
   .header.transparent {
-    background-color: rgba(25, 25, 30, 0); /* Fully transparent when scrolled */
-    box-shadow: none; /* Remove shadow when transparent */
+    background-color: rgba(25, 25, 30, 0);
+    box-shadow: none;
   }
   
   .header-spacer {
-    height: 60px; /* Should match the height of your header */
+    height: 60px;
   }
   
   .container {
@@ -61,7 +68,8 @@ const currentPath = Astro.url.pathname;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px; /* Fixed height for consistency */
+    height: 60px;
+    position: relative; /* For absolute positioning of mobile menu */
   }
   
   .logo a {
@@ -69,7 +77,7 @@ const currentPath = Astro.url.pathname;
     font-weight: bold;
     color: white;
     text-decoration: none;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   }
   
   .menu {
@@ -77,6 +85,7 @@ const currentPath = Astro.url.pathname;
     list-style-type: none;
     margin: 0;
     padding: 0;
+    transition: all 0.3s ease;
   }
   
   .menu li {
@@ -88,31 +97,152 @@ const currentPath = Astro.url.pathname;
     text-decoration: none;
     padding: 0.5rem;
     transition: color 0.3s;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for readability */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    display: block; /* Better touch target */
   }
   
-  .menu a:hover {
-    color: #4a89dc; /* Light blue on hover */
+  .menu a:hover, .menu a:focus {
+    color: #4a89dc;
   }
   
   .menu a.active {
-    color: #4a89dc; /* Light blue for active page */
+    color: #4a89dc;
     font-weight: 500;
   }
   
+  /* Hide mobile toggle by default */
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+  }
+  
+  /* Hamburger icon */
+  .hamburger-icon {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger-icon::before,
+  .hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger-icon::before {
+    transform: translateY(-8px);
+  }
+  
+  .hamburger-icon::after {
+    transform: translateY(8px);
+  }
+  
+  /* Mobile menu open state */
+  .mobile-menu-toggle.open .hamburger-icon {
+    background-color: transparent;
+  }
+  
+  .mobile-menu-toggle.open .hamburger-icon::before {
+    transform: translateY(0) rotate(45deg);
+  }
+  
+  .mobile-menu-toggle.open .hamburger-icon::after {
+    transform: translateY(0) rotate(-45deg);
+  }
+  
+  /* Medium screens (tablets) */
   @media (max-width: 768px) {
-    nav {
-      padding: 0 1rem;
+    .menu li {
+      margin-left: 1rem;
+    }
+    
+    .menu a {
+      padding: 0.5rem 0.3rem;
+      font-size: 0.95rem;
+    }
+    
+    .logo a {
+      font-size: 1.3rem;
+    }
+  }
+  
+  /* Small screens (large phones) */
+  @media (max-width: 576px) {
+    .menu li {
+      margin-left: 0.5rem;
+    }
+    
+    .logo a {
+      font-size: 1.2rem;
+    }
+    
+    .menu a {
+      padding: 0.5rem 0.2rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Extra small screens (mobile phones) */
+  @media (max-width: 480px) {
+    .header-spacer {
+      height: 60px; /* Keep consistent with header height */
+    }
+    
+    .mobile-menu-toggle {
+      display: block; /* Show hamburger menu */
+      margin-left: auto;
+    }
+    
+    .menu {
+      position: absolute;
+      top: 59px; /* Just below the header */
+      left: 0;
+      width: 100%;
+      background-color: rgba(25, 25, 30, 0.95);
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 0;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .menu.open {
+      max-height: 300px;
+      opacity: 1;
+      padding: 1rem 0;
     }
     
     .menu li {
-      margin: 0 0.75rem;
+      margin: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .menu a {
+      padding: 0.8rem 1rem;
+      width: 100%;
+      font-size: 1rem;
     }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Handle scroll transparency
     const header = document.querySelector('.header') as HTMLElement;
     const scrollThreshold = 50;
     
@@ -128,6 +258,35 @@ const currentPath = Astro.url.pathname;
         } else {
           header.classList.remove('transparent');
         }
+      });
+    }
+    
+    // Handle mobile menu toggle
+    const menuToggle = document.querySelector('.mobile-menu-toggle') as HTMLElement;
+    const menu = document.querySelector('.menu') as HTMLElement;
+    
+    if (menuToggle && menu) {
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('open');
+        menu.classList.toggle('open');
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (!target.closest('.menu') && !target.closest('.mobile-menu-toggle') && menu.classList.contains('open')) {
+          menuToggle.classList.remove('open');
+          menu.classList.remove('open');
+        }
+      });
+      
+      // Close menu when clicking a menu item
+      const menuItems = menu.querySelectorAll('a');
+      menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+          menuToggle.classList.remove('open');
+          menu.classList.remove('open');
+        });
       });
     }
   });
